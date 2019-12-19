@@ -1,0 +1,187 @@
+body {
+  margin-bottom: 150px;
+}
+
+code {
+  display: block;
+  padding: 8px 15px;
+  margin-bottom: 30px;
+  background-color: #f6f8fa;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  overflow-x: auto;
+  font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  color: #333;
+  font-size: 12px;
+}
+
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+  margin: 0 0 20px;
+}
+
+h1 {
+  color: #4AB7BD;
+  font-size: 60px;
+  text-align: center
+}
+
+h3 {
+  font-size: 36px;
+  color: #494949;
+  line-height: 1.1;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg)
+  }
+  40%,
+  80% {
+    transform: rotate(10deg)
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
+
+#app {
+  margin: 20px;
+}
+
+.container {
+  width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin: 0 -20px;
+  overflow: hidden;
+}
+
+.row .cell {
+  float: left;
+  padding: 0 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.row .cell.col-4 {
+  width: 33.33%;
+}
+
+.circle-progress {
+  margin-bottom: 20px;
+}
+
+.example-btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 4px 15px;
+  font-size: 12px;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  position: relative;
+  color: rgba(0, 0, 0, .65);
+  background-color: #fff;
+  border-color: #d9d9d9;
+}
+
+.example-btn:hover {
+  color: #4AB7BD;
+  background-color: #fff;
+  border-color: #4AB7BD;
+}
+
+.example-item {
+  margin-bottom: 80px;
+}
+
+
+/* 自定义体验DEMO样式 */
+.score-box {
+  position: relative;
+  width: 225px;
+  height: 225px;
+  text-align: center;
+}
+.score-box .check-point {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 50%;
+  width: 10px;
+  margin-left: -5px;
+  animation: checkRotate 2s ease infinite;
+  transform-origin: center bottom;
+}
+.score-box .check-point span {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #666;
+  border-radius: 50%;
+}
+.score-box .testing {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* 检测圆点旋转动画 */
+@keyframes checkRotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes checkRotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,169 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: YangBo
+ * @Date: 2018-11-28 19:34:26
+ * @LastEditors: YangBo
+ * @LastEditTime: 2019-12-19 12:51:16
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>vue-round-progress</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <script src='https://unpkg.com/vue@2.6.10'></script>
+  <script src="../dist/vue-round-progress.min.js"></script>
+  <a href="https://github.com/MuYiBo/vue-round-progress" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#4AB7BD; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+      aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+        fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+        fill="currentColor" class="octo-body"></path>
+    </svg>
+  </a>
+  <div id="app">
+    <template>
+      <h1>vue-round-progress</h1>
+      <div class='container'>
+        <div class="example-item">
+          <h3> simple example</h3>
+          <code>&lt;vue-round-progress :value=&#x27;80&#x27; :size=&#x27;250&#x27; :lineWidth=&#x27;10&#x27; lineColor=&#x27;#ff6699&#x27; :duration=&#x27;3000&#x27;&gt;&lt;/vue-round-progress&gt;</code>
+          <vue-round-progress v-bind="example1" :duration='3000'></vue-round-progress>
+        </div>
+        <div class="example-item">
+          <h3> more configuration parameters example</h3>
+          <div class="row">
+            <div class="cell col-4">
+              <code> &lt;vue-round-progress <br/> :value=&#x27;188&#x27; <br/> :maxValue=&#x27;400&#x27; <br/> lineColor=&#x27;#4AB7BD&#x27; <br/> lineColorDefault=&#x27;rgba(0,0,0,.3)&#x27; <br/> :textStyle=&#x27;{color:"#4AB7BD",fontSize:"30px"}&#x27; <br/>&gt;&lt;/vue-round-progress&gt;<br/>&nbsp;</code>
+              <vue-round-progress v-bind="example2"></vue-round-progress>
+            </div>
+            <div class="cell col-4">
+              <code> &lt;vue-round-progress <br/> :value=&#x27;30&#x27; <br/>  :startAge=&#x27;90&#x27; <br/> :endAge=&#x27;450&#x27; <br/> :showText=&#x27;false&#x27; <br/>&gt;&lt;/vue-round-progress&gt;<br/>&nbsp;<br/>&nbsp;</code>
+              <vue-round-progress v-bind="example3"></vue-round-progress>
+            </div>
+            <div class="cell col-4">
+              <code> &lt;vue-round-progress <br/> :value=&#x27;60&#x27; <br/> :startAge=&#x27;30&#x27; <br/> :endAge=&#x27;330&#x27; <br/> :showText=&#x27;false&#x27; <br/> :lineDash=&#x27;[3,3]&#x27; <br/> :lineDashDefault=&#x27;[1,5]&#x27; <br/>&gt;&lt;/vue-round-progress&gt;</code>
+              <vue-round-progress v-bind="example4"></vue-round-progress>
+            </div>
+          </div>
+        </div>
+        <div class="example-item">
+          <h3> function call example</h3>
+          <code>&lt;vue-round-progress :value=&#x27;50&#x27;&gt;&lt;/vue-round-progress&gt;</code>
+          <vue-round-progress ref='example5' v-bind="example5"></vue-round-progress>
+          <div class='example-btn' @click='restart()'>restart</div>
+          <div class='example-btn' @click='restart(0)'>restart(0)</div>
+          <div class='example-btn' @click='restart("new")'>restart(new value)</div>
+          <div class='example-btn' @click='changeValue'>changeValue</div>
+        </div>
+        <div class="example-item">
+          <h3> extended use example</h3>
+          <code> &lt;vue-round-progress :value=&#x27;60&#x27; :startAge=&#x27;30&#x27; :endAge=&#x27;330&#x27; :lineDash=&#x27;[3,3]&#x27; :lineDashDefault=&#x27;[1,5]&#x27;&gt;&lt;/vue-round-progress&gt;</code>
+          <!-- 体检DEMO -->
+          <div class="score-box">
+            <!-- 圆环图 -->
+            <vue-round-progress ref='example6' v-bind="example6"></vue-round-progress>
+            <!-- 加载中状态 -->
+            <template v-if="checkLoading">
+              <div class="check-point">
+                <span></span>
+              </div>
+              <!-- 分数 -->
+              <label class="testing">正在检测...</label>
+            </template>
+            <!-- 再执行一遍 -->
+            <div class='example-btn' @click='getDemoValue'>once again</div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+  <script>
+    var Main = {
+      name: 'test',
+      data() {
+        return {
+          example1: {
+            value: 80,
+            size: 250,
+            lineWidth: 10,
+            lineColor: "#ff6699"
+          },
+          example2: {
+            value: 188,
+            maxValue: 400,
+            lineColor: "#4AB7BD",
+            lineColorDefault: "rgba(0,0,0,.3)",
+            textStyle: {
+              color: "#4AB7BD",
+              fontSize: "30px"
+            }
+          },
+          example3: {
+            value: 30,
+            startAge: 90,
+            endAge: 450,
+            showText: false
+          },
+          example4: {
+            value: 60,
+            startAge: 30,
+            endAge: 330,
+            showText: false,
+            lineDash: [3, 3],
+            lineDashDefault: [1, 5]
+          },
+          example5: {
+            value: 50
+          },
+          example6: {
+            value: 0,
+            startAge: 30,
+            endAge: 330,
+            lineDash: [3, 3],
+            lineDashDefault: [1, 5]
+          },
+          checkLoading: true,   // 自定义DEMO是否处于loading状态
+        }
+      },
+      mounted() {
+        // 调用自定义体验DEMO获取数据方法
+        this.getDemoValue();
+      },
+      methods: {
+        // 重置进度条方法
+        restart(value) {
+          if(value === 'new') {
+            value = parseInt(Math.random() * 100);
+          }
+          this.$refs.example5.restart(value);
+        },
+        // 直接更改值的方法
+        changeValue() {
+          let value = parseInt(Math.random() * 100);
+          this.$refs.example5.changeValue(value);
+        },
+        // 自定义体验DEMO获取数据方法
+        getDemoValue() {
+          this.checkLoading = true;
+          this.$refs.example6.restart();
+          setTimeout(() => {
+            this.checkLoading = false;
+            this.$refs.example6.restart(80);
+          }, 3000)
+        }
+      }
+    };
+    var Ctor = Vue.extend(Main)
+    new Ctor().$mount('#app')
+  </script>
+</body>
+
+</html>
