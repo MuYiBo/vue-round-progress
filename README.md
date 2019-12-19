@@ -5,6 +5,8 @@
  [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
 
+## [Try the demo](https://muyibo.github.io/vue-round-progress/demo/)
+
 ### How to use?
 ```bash
 npm install vue-round-progress
@@ -39,6 +41,9 @@ npm install vue-round-progress
 </script>
 ```
 
+demo:
+
+![demo](https://github.com/MuYiBo/vue-round-progress/blob/master/demo.gif)
 
 
 ### Options
